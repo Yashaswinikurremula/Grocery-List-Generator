@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./recipe.js"></script>
+    <meta charset="utf-8" />
+    <link href="stylesheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <header class="header">
+        <h1 id="title">ShopChef</h1>
+    </header>
+    <div class="converter-container">
+        <div>
+            <label for="ingredients">Enter Recipe Name:</label>
+            <input type="text" placeholder="Enter recipe name" id="goal" autocomplete="off"/>
+            <button id="myButton" onclick="getTextField()">Generate</button>
+        </div>
+    </div>
+    <div id="tableContainer"></div>
+    <a href="index.html"><button id="button" onclick="goback()">Return</button></a>
+    <button id="viewShoppingList">View Shopping List</button>
+
+    <script>
+        document.getElementById("viewShoppingList").addEventListener("click", function() {
+            window.location.href = "shopping_list.html";
+        });
+    </script>
+</body>
+</html>
