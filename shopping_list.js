@@ -1,15 +1,10 @@
-let shoppingList = [];
-
-function addToShoppingList(ingredient) {
-    shoppingList.push(ingredient);
-    displayShoppingList(); // Call displayShoppingList after adding an item
-}
+let shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || []; 
 
 function displayShoppingList() {
     let tableBody = document.getElementById("shoppingListBody");
-    tableBody.innerHTML = ""; // Clear existing content
+    tableBody.innerHTML = ""; 
 
-    for (let ingredient of shoppingList) {
+    shoppingList.forEach(ingredient => {
         let row = document.createElement("tr");
         let ingredientCell = document.createElement("td");
         ingredientCell.textContent = ingredient;
@@ -21,7 +16,9 @@ function displayShoppingList() {
         row.appendChild(ingredientCell);
         row.appendChild(checkboxCell);
         tableBody.appendChild(row);
-    }
+    });
 }
 
-document.getElementById("viewShoppingList").addEventListener("click", displayShoppingList);
+document.addEventListener("DOMContentLoaded", function() {
+    displayShoppingList(); 
+});
