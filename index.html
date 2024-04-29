@@ -18,13 +18,15 @@
         </div>
     </div>
     <div id="tableContainer"></div>
-    <a href="index.html"><button id="button" onclick="goback()">Return</button></a>
-    <button id="viewShoppingList">View Shopping List</button>
+    <div id="button-cont">
+    <a href="index.html"><button id="button" onclick="clearAndReturn()">Return</button></a>
+    <button id="viewShoppingList">View Grocery List</button>
+</div>
+<script>
+    document.getElementById("viewShoppingList").addEventListener("click", function() {
+        window.location.href = "shopping_list.html"; 
+    });
+</script>
 
-    <script>
-        document.getElementById("viewShoppingList").addEventListener("click", function() {
-            window.location.href = "shopping_list.html";
-        });
-    </script>
 </body>
 </html>
