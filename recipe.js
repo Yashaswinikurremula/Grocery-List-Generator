@@ -2,8 +2,15 @@ let abc;
 let shoppingList = [];
 
 function addToShoppingList(ingredient) {
-    shoppingList.push(ingredient);
+    if (!shoppingList.includes(ingredient)) {
+        shoppingList.push(ingredient);
+        localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+    } else {
+        alert('Ingredient already in the list.');
+    }
 }
+
+
 
 function generateTable(recipe) {
     var result = "<table border=1>";
@@ -28,6 +35,12 @@ function generateTable(recipe) {
         });
     });
 }
+function clearAndReturn() {
+    localStorage.setItem('shoppingList', JSON.stringify([]));
+}
+
+document.getElementById('returnButton').addEventListener('click', clearAndReturn);
+
 
 function getTextField() {
     console.log("button onclick");
